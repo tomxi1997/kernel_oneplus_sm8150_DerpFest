@@ -42,8 +42,8 @@ jobs:
         sudo apt install gcc-aarch64-linux-gnu -y
         sudo apt install gcc-arm-linux-gnueabi -y
         sudo apt install curl binutils make python3 libssl-dev build-essential bc bison flex unzip libssl-dev ca-certificates xz-utils mkbootimg cpio device-tree-compiler git git-lfs -y
-        #git https://gitlab.com/LeCmnGend/proton-clang -b clang-17 clang --depth=1
-        git clone https://gitlab.com/Jprimero15/aosp-clang-18.0.0 clang --depth=1
+        git https://gitlab.com/LeCmnGend/proton-clang -b clang-14 clang --depth=1
+        #git clone https://gitlab.com/Jprimero15/aosp-clang-18.0.0 clang --depth=1
         git clone https://github.com/snowwolf725/AnyKernel3 -b oneplus7 --depth=1
         rm -rf AnyKernel3/.git
     - name: Get kernelsu-next sourcecode
