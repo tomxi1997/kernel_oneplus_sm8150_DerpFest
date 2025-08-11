@@ -41,9 +41,9 @@ jobs:
         sudo apt-get update -y 
         sudo apt install gcc-aarch64-linux-gnu -y
         sudo apt install gcc-arm-linux-gnueabi -y
-        sudo apt install curl binutils make python3 libssl-dev build-essential bc bison flex unzip libssl-dev ca-certificates xz-utils mkbootimg cpio device-tree-compiler git git-lfs -y
+        sudo apt install clang llvm ccache curl binutils make python3 libssl-dev build-essential bc bison flex unzip libssl-dev ca-certificates xz-utils mkbootimg cpio device-tree-compiler git git-lfs -y
         #git clone https://gitlab.com/LeCmnGend/proton-clang -b clang-14 clang --depth=1
-        git clone https://gitlab.com/Jprimero15/aosp-clang-18.0.0 clang --depth=1
+        #git clone https://gitlab.com/Jprimero15/aosp-clang-18.0.0 clang --depth=1
         git clone https://github.com/snowwolf725/AnyKernel3 -b oneplus7 --depth=1
         rm -rf AnyKernel3/.git
     - name: Get kernelsu-next sourcecode
@@ -51,7 +51,7 @@ jobs:
         curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -s next 
     - name: Build Kernel
       run: |
-       export PATH=$(pwd)/clang/bin/:$(pwd)/aarch64/bin/:$PATH
+       #export PATH=$(pwd)/clang/bin/:$(pwd)/aarch64/bin/:$PATH
        export ARCH=arm64
        export SUBARCH=arm64
        export LD=ld.lld
