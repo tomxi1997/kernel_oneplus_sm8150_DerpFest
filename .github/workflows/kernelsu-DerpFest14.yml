@@ -20,7 +20,7 @@ jobs:
       CCACHE_MAXSIZE: "2G"
       CCACHE_HARDLINK: "true"
       KERNEL_DEFCONFIG: "vendor/derp_defconfig"
-      KERNEL_CMDLINE: "ARCH=arm64 CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- LLVM=1 LLVM_IAS=1 O=out"
+      KERNEL_CMDLINE: "ARCH=arm64 CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- O=out"
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
        #export PATH=$(pwd)/clang/bin/:$(pwd)/aarch64/bin/:$PATH
        export ARCH=arm64
        export SUBARCH=arm64
-       export LD=ld.lld
+       #export LD=ld.lld
        make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
        make $KERNEL_CMDLINE CC="ccache clang" -j$(nproc --all)
        cp out/arch/arm64/boot/Image AnyKernel3
